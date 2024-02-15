@@ -1,0 +1,30 @@
+<div class="nav-layout">
+  <div class="navigation">
+    {{ template "navigation" (dict "page" site.Home "paddingLeft" 0) }}
+  </div>
+</div>
+
+{{ define "navigation" }}
+<ul class="list">
+  {{ $paddingLeft := .paddingLeft }}
+  {{ range .page.Pages }}
+    <li>
+      {{ $isOpen := strings.Contains page.Permalink .Permalink }}
+      {{ if .IsSection }}
+        <button class="list-item navigation-button w-full py-8" style="padding-left: {{ $paddingLeft }}px;">
+          <span class="icon {{ if $isOpen }}rotate-90{{ end }}">{{ partial "icons/chevron-right.html" . }}</span>
+          <span class="ml-2">{{ .Title }}</span>
+        </button>
+        <div class="navigation-section {{ if not $isOpen }}hidden{{ end }}">
+          {{ template "navigation" (dict "page" . "paddingLeft" (add $paddingLeft 16)) }}
+        </div>
+      {{ else if .IsPage }}
+        <a class="list-item py-8 {{ if $isOpen }}bg-current{{ end }}" href="{{ .RelPermalink }}" style="padding-left: {{ $paddingLeft }}px;">
+          <span class="icon"></span>
+          <span class="ml-2">{{ .Title }}</span>
+        </a>
+      {{ end }}
+    </li>
+  {{ end }}
+</ul>
+{{ end }}

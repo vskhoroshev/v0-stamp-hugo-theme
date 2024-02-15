@@ -1,0 +1,41 @@
+<div class="header-layout">
+  <div class="header-general">
+    <button class="btn nav-switcher-button w-32 h-32">
+      <span class="icon">{{ partial "icons/fries.html" . }}</span>
+    </button>
+    <a class="logo w-32 h-32 ml-8" href="{{ site.Home.RelPermalink }}">
+      {{ partial "icons/logo.html" . }}
+    </a>
+    <a class="title px-8" href="{{ site.Home.RelPermalink }}">
+      <strong>{{ site.Title }}</strong>
+    </a>
+  </div>
+  <div class="header-actions">
+    <button class="btn theme-switcher-button w-32 h-32">
+      <span class="icon light-theme-icon hidden">{{ partial "icons/sun.html" . }}</span>
+      <span class="icon dark-theme-icon hidden">{{ partial "icons/moon.html" . }}</span>
+    </button>
+    {{ if site.IsMultiLingual }}
+      <div class="language-switcher">
+        <button class="btn language-switcher-button min-w-32 h-32 px-8 py-6">
+          <span class="icon">{{ partial "icons/language.html" . }}</span>
+          <span class="ml-6">{{ .Language.LanguageName }}</span>
+        </button>
+        <ul class="drop-list language-switcher-list r-0 p-8 my-2 whitespace-nowrap hidden">
+          {{ range .AllTranslations }}
+            <li>
+              <a class="list-item language-switcher-item px-8 py-6" href="{{ .RelPermalink }}">
+                <span class="icon">
+                  {{ if eq .Language page.Language }}
+                    {{ partial "icons/check.html" . }}
+                  {{ end }}
+                </span>
+                <span class="ml-6">{{ .Language.LanguageName }}</span>
+              </a>
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+    {{ end }}
+  </div>
+</div>

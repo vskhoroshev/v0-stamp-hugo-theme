@@ -1,0 +1,13 @@
+{{ define "main" }}
+<div class="single-layout">
+  <article class="single-article">
+    <h1>{{ .Title }}</h1>
+    <section>
+      {{ .Content }}
+    </section>
+  </article>
+  <aside class="single-aside">
+    {{ .TableOfContents }}
+  </aside>
+</div>
+{{ end }}

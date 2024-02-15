@@ -1,0 +1,16 @@
+name = 'Stamp Hugo Theme'
+license = 'Apache-2.0 license'
+licenselink = 'https://github.com/vskhoroshev/v0-stamp-hugo-theme/LICENSE'
+description = 'Theme description'
+
+# The home page of the theme, where the source can be found
+homepage = 'https://github.com/vskhoroshev/v0-stamp-hugo-theme/'
+
+# Taxonomy terms
+tags = ['docs', 'company']
+features = ['some', 'awesome', 'features']
+
+# If the theme has a single author
+[author]
+  name = 'Vadim Khoroshev'
+  homepage = 'https://github.com/vskhoroshev'

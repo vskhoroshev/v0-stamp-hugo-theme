@@ -1,0 +1,1 @@
+# Stamp Hugo Theme

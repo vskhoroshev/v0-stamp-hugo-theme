@@ -1,0 +1,8 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'Stamp Hugo Theme'
+
+[module]
+  [module.hugoVersion]
+    extended = false
+    min = "0.121.1"

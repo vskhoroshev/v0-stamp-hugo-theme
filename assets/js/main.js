@@ -34,9 +34,18 @@ document.addEventListener("DOMContentLoaded", function () {
     // });
 
     document.querySelector(".navigation").addEventListener("click", (e) => {
-        if (e.target.matches(".navigation-button")) {
-            e.target.querySelector(".icon").classList.toggle("rotate-90");
-            e.target.parentElement.querySelector(".navigation-section").classList.toggle("hidden");
+        let var1 = e.target.closest(".navigation-button");
+
+        if (var1.matches(".navigation-button")) {
+            var1.querySelector(".icon").classList.toggle("rotate-90");
+            var1.parentElement.querySelector(".navigation-section").classList.toggle("hidden");
         }
     });
+
+    // document.querySelector(".navigation").addEventListener("click", (e) => {
+    //     if (e.target.matches(".navigation-button")) {
+    //         e.target.querySelector(".icon").classList.toggle("rotate-90");
+    //         e.target.parentElement.querySelector(".navigation-section").classList.toggle("hidden");
+    //     }
+    // });
 });

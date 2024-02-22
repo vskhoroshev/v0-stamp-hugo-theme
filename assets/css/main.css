@@ -286,17 +286,18 @@ body {
 
 
 
+
+/* ============================================ */
+
 /*body {*/
 /*  overflow-y: hidden;*/
 /*}*/
 
 /*.baseof-main {*/
-/*  box-sizing: border-box;*/
-/*  min-height: 100vh;*/
-/*  overflow-y: scroll;*/
-/*  !*scrollbar-gutter: stable;*!*/
+/*  max-height: calc(100vh - var(--baseof-footer-height));*/
+/*  overflow-y: auto;*/
+/*  scrollbar-gutter: stable;*/
 /*}*/
-
 
 /* ============================================ */
 

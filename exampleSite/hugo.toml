@@ -4,12 +4,12 @@ defaultContentLanguageInSubdir = true
 
 [languages]
   [languages.en]
-    title = 'Garnet Docs'
+    title = 'Docs'
     languageCode = 'en'
     languageName = 'English'
     weight = 1
   [languages.ru]
-    title = 'Garnet Документация'
+    title = 'Документация'
     languageCode = 'ru'
     languageName = 'Русский'
     weight = 2

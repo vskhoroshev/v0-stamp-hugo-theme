@@ -36,12 +36,14 @@
     <nav class="baseof-nav">
       {{ partial "navigation.html" . }}
     </nav>
-    <main class="baseof-main">
-      {{ block "main" . }}{{ end }}
-    </main>
-    <footer class="baseof-footer">
-      {{ partial "footer.html" . }}
-    </footer>
+    <div class="baseof-wrapper">
+      <main class="baseof-main">
+        {{ block "main" . }}{{ end }}
+      </main>
+      <footer class="baseof-footer">
+        {{ partial "footer.html" . }}
+      </footer>
+    </div>
   </div>
 </body>
 </html>

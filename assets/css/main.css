@@ -15,14 +15,16 @@
   --list-item-fill: #000;
   --drop-list-background: #fff;
   --bg-current: #fff;
-  --single-layout-max-width: 1280px;
-  --single-aside-width: 256px;
+  --single-layout-max-width: 1128px;
+  --single-aside-width: 240px;
 }
 
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, system-ui;
   font-size: 14px;
+
+  overflow-y: hidden;
 
   /*overflow-y: hidden;*/
   /*vertical-align: baseline;*/
@@ -64,7 +66,7 @@ body {
 
 .baseof-layout {
   display: grid;
-  grid-template: var(--baseof-header-height) 1fr var(--baseof-footer-height) / var(--baseof-nav-width) 1fr;
+  grid-template: var(--baseof-header-height) 1fr / var(--baseof-nav-width) 1fr;
   min-height: 100vh;
   color: var(--text-color);
 }
@@ -89,13 +91,22 @@ body {
   background: var(--baseof-nav-background);
 }
 
+.baseof-wrapper {
+  grid-area: 2 / 2 / -1 / -1;
+  display: grid;
+  grid-template-rows: 1fr var(--baseof-footer-height);
+  max-height: calc(100vh - var(--baseof-header-height));
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+}
+
 .baseof-main {
-  grid-area: 2 / 2 / -2 / -1;
+  grid-area: 1 / 1 / 2 / -1;
   background: var(--baseof-main-background);
 }
 
 .baseof-footer {
-  grid-area: -1 / 2 / -2 / -1;
+  grid-area: 2 / 1 / -1 / -1;
   border-top: var(--border-width) solid var(--border-color);
   background: var(--baseof-footer-background);
 }
@@ -127,6 +138,7 @@ body {
 .single-layout {
   display: grid;
   grid-template-columns: 1fr var(--single-aside-width);
+  grid-column-gap: 40px;
   box-sizing: border-box;
   max-width: var(--single-layout-max-width);
   padding: 16px;
@@ -139,7 +151,13 @@ body {
 }
 
 .single-aside {
+  grid-area: 1 / 2 / -1 / -1;
+  position: sticky;
+  top: 16px;
+  height: calc(100vh - var(--baseof-header-height) - 32px);
   box-sizing: border-box;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
 }
 
 .footer-layout {
@@ -238,33 +256,57 @@ body {
 .single-article {
   font-size: 16px;
   line-height: 24px;
-
-  margin-right: 40px;
-}
-
-.single-aside {
-  grid-area: 1 / 2 / -1 / -1;
-  position: sticky;
-  top: calc(var(--baseof-header-height) + 16px);
-  height: calc(100vh - var(--baseof-header-height) - var(--baseof-footer-height) - 32px);
-  overflow-y: auto;
-  scrollbar-gutter: stable;
 }
 
 
-#TableOfContents > ul {
-    /*padding: 0;*/
-    /*margin: 0;*/
-  border-left: var(--border-width) solid var(--border-color);
-}
+/* ================= */
 
 #TableOfContents ul {
+  padding: 0;
+  margin: 0;
   list-style-type: none;
 }
 
+#TableOfContents li a {
+  display: grid;
+  grid-auto-flow: column;
+  padding: 8px;
+  border: none;
+  border-radius: var(--border-radius);
+  margin: 0;
+  font: inherit;
+  color: var(--text-color);
+  text-decoration: none;
+  justify-content: start;
+  align-content: center;
+  justify-items: start;
+  align-items: center;
+  fill: var(--list-item-fill);
+  background: rgba(0, 0, 0, 0);
+  cursor: pointer;
+
+  /*padding-top: 8px;*/
+  /*padding-bottom: 8px;*/
+}
+
+#TableOfContents li a {
+  padding-left: 40px;
+}
+
+#TableOfContents > ul > li > a {
+  padding-left: 24px;
+}
+
+#TableOfContents > ul {
+  /*padding: 0 0 0 24px;*/
+  border-left: var(--border-width) solid var(--border-color);
+}
+
+
+
 #TableOfContents li {
-  padding-top: 6px;
-  padding-bottom: 6px;
+  /*padding-top: 6px;*/
+  /*padding-bottom: 6px;*/
 }
 
 #TableOfContents li a {
@@ -284,20 +326,6 @@ body {
   background: var(--background--hover);
 }
 
-
-
-
-/* ============================================ */
-
-/*body {*/
-/*  overflow-y: hidden;*/
-/*}*/
-
-/*.baseof-main {*/
-/*  max-height: calc(100vh - var(--baseof-footer-height));*/
-/*  overflow-y: auto;*/
-/*  scrollbar-gutter: stable;*/
-/*}*/
 
 /* ============================================ */
 
@@ -446,5 +474,26 @@ body {
 
 /*.single-aside {*/
 /*  background: red;*/
+/*}*/
+
+
+/*.single-article {*/
+/*  background-color: lightgray;*/
+/*}*/
+
+/*.single-article section {*/
+/*  background-color: lavender;*/
+/*}*/
+
+/*.single-aside {*/
+/*  background-color: lightgray;*/
+/*}*/
+
+/*.single-aside nav {*/
+/*  background-color: lavender;*/
+/*}*/
+
+/*.navigation {*/
+/*  background-color: lavender;*/
 /*}*/
 

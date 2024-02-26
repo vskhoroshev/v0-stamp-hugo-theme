@@ -9,7 +9,7 @@
   --baseof-nav-width: 336px;
   --baseof-nav-background: #fff;
   --baseof-main-background: #fff;
-  --baseof-footer-height: 64px;
+  --baseof-footer-height: 200px;
   --baseof-footer-background: #fff;
   --btn-fill: #fff;
   --list-item-fill: #000;
@@ -17,23 +17,6 @@
   --bg-current: #fff;
   --single-layout-max-width: 1128px;
   --single-aside-width: 240px;
-}
-
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, system-ui;
-  font-size: 14px;
-
-  overflow-y: hidden;
-
-  /*overflow-y: hidden;*/
-  /*vertical-align: baseline;*/
-  /*font-kerning: auto;*/
-  /*font-optical-sizing: auto;*/
-
-  /*font-family: "JetBrains Sans", Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Droid Sans", "Helvetica Neue", Arial, sans-serif;*/
-
-  /*font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";*/
 }
 
 .light-theme {
@@ -64,11 +47,59 @@ body {
   --bg-current: #848484;
 }
 
+body {
+  /*margin: 0;*/
+
+  /*color: var(--text-color);*/
+  /*font-family: -apple-system, BlinkMacSystemFont, system-ui;*/
+  /*font-size: 14px;*/
+
+  /*overflow-y: hidden;*/
+
+  /*overflow-y: hidden;*/
+  /*vertical-align: baseline;*/
+  /*font-kerning: auto;*/
+  /*font-optical-sizing: auto;*/
+
+  /*font-family: "JetBrains Sans", Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Droid Sans", "Helvetica Neue", Arial, sans-serif;*/
+
+  /*font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";*/
+}
+
+
+/*
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+*/
+
+/* ==================================================================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: .875rem;
+  line-height: 1.25rem;
+  overflow-y: hidden;
+}
+
+
+/*
+  font: inherit;
+*/
+/* ==================================================================================================== */
+/* ==================================================================================================== */
+
 .baseof-layout {
   display: grid;
   grid-template: var(--baseof-header-height) 1fr / var(--baseof-nav-width) 1fr;
   min-height: 100vh;
-  color: var(--text-color);
 }
 
 .baseof-header {
@@ -86,7 +117,7 @@ body {
   top: var(--baseof-header-height);
   height: calc(100vh - var(--baseof-header-height));
   overflow-y: auto;
-  scrollbar-gutter: stable;
+  scrollbar-gutter: stable both-edges;
   border-right: var(--border-width) solid var(--border-color);
   background: var(--baseof-nav-background);
 }
@@ -95,9 +126,8 @@ body {
   grid-area: 2 / 2 / -1 / -1;
   display: grid;
   grid-template-rows: 1fr var(--baseof-footer-height);
-  max-height: calc(100vh - var(--baseof-header-height));
+  height: calc(100vh - var(--baseof-header-height));
   overflow-y: auto;
-  scrollbar-gutter: stable;
 }
 
 .baseof-main {
@@ -132,7 +162,8 @@ body {
 }
 
 .nav-layout {
-  padding: 16px 8px 16px 16px;
+  display: grid;
+  padding: 16px 8px;
 }
 
 .single-layout {
@@ -146,15 +177,15 @@ body {
 }
 
 .single-article {
-  box-sizing: border-box;
+  /*box-sizing: border-box;*/
   padding: 24px;
 }
 
 .single-aside {
   grid-area: 1 / 2 / -1 / -1;
-  position: sticky;
-  top: 16px;
-  height: calc(100vh - var(--baseof-header-height) - 32px);
+  /*position: sticky;*/
+  /*top: 16px;*/
+  /*height: calc(100vh - var(--baseof-header-height) - 32px);*/
   box-sizing: border-box;
   overflow-y: auto;
   scrollbar-gutter: stable;
@@ -258,73 +289,111 @@ body {
   line-height: 24px;
 }
 
+h2, h3 {
+  padding-top: 16px;
+}
+
 
 /* ================= */
 
+
 #TableOfContents ul {
+  /*padding: 0 0 0 16px;*/
   padding: 0;
   margin: 0;
   list-style-type: none;
 }
 
-#TableOfContents li a {
-  display: grid;
-  grid-auto-flow: column;
-  padding: 8px;
-  border: none;
-  border-radius: var(--border-radius);
-  margin: 0;
-  font: inherit;
-  color: var(--text-color);
-  text-decoration: none;
-  justify-content: start;
-  align-content: center;
-  justify-items: start;
-  align-items: center;
-  fill: var(--list-item-fill);
-  background: rgba(0, 0, 0, 0);
-  cursor: pointer;
-
-  /*padding-top: 8px;*/
-  /*padding-bottom: 8px;*/
-}
-
-#TableOfContents li a {
-  padding-left: 40px;
-}
-
-#TableOfContents > ul > li > a {
-  padding-left: 24px;
-}
-
 #TableOfContents > ul {
-  /*padding: 0 0 0 24px;*/
   border-left: var(--border-width) solid var(--border-color);
 }
 
+#TableOfContents a {
+  display: grid;
+  grid-auto-flow: column;
+  /*display: inline-block;*/
 
+  padding: 8px;
+  border-radius: var(--border-radius);
+  margin: 0;
 
-#TableOfContents li {
-  /*padding-top: 6px;*/
-  /*padding-bottom: 6px;*/
-}
-
-#TableOfContents li a {
   /*font: inherit;*/
   color: var(--text-color);
   text-decoration: none;
-  justify-content: start;
-  align-content: center;
-  justify-items: start;
-  align-items: center;
-  fill: var(--list-item-fill);
-  background: rgba(0, 0, 0, 0);
-  cursor: pointer;
+  /*justify-content: start;*/
+  /*align-content: center;*/
+  /*justify-items: start;*/
+  /*align-items: center;*/
+  /*fill: var(--list-item-fill);*/
+  /*background: rgba(0, 0, 0, 0);*/
+  /*cursor: pointer;*/
+
+
+
+  /*padding: 8px 0;*/
 }
+
+
+/* ================= */
+
+/*#TableOfContents li a {*/
+/*  display: grid;*/
+/*  grid-auto-flow: column;*/
+/*  padding: 8px;*/
+/*  border: none;*/
+/*  border-radius: var(--border-radius);*/
+/*  margin: 0;*/
+/*  font: inherit;*/
+/*  color: var(--text-color);*/
+/*  text-decoration: none;*/
+/*  justify-content: start;*/
+/*  align-content: center;*/
+/*  justify-items: start;*/
+/*  align-items: center;*/
+/*  fill: var(--list-item-fill);*/
+/*  background: rgba(0, 0, 0, 0);*/
+/*  cursor: pointer;*/
+
+/*  !*padding-top: 8px;*!*/
+/*  !*padding-bottom: 8px;*!*/
+/*}*/
+
+/*#TableOfContents li a {*/
+/*  padding-left: 40px;*/
+/*}*/
+
+/*#TableOfContents > ul > li > a {*/
+/*  padding-left: 24px;*/
+/*}*/
 
 #TableOfContents li a:hover {
   background: var(--background--hover);
 }
+
+/*#TableOfContents > ul {*/
+/*  !*padding: 0 0 0 24px;*!*/
+/*  border-left: var(--border-width) solid var(--border-color);*/
+/*}*/
+
+
+
+/*#TableOfContents li {*/
+/*  !*padding-top: 6px;*!*/
+/*  !*padding-bottom: 6px;*!*/
+/*}*/
+
+/*#TableOfContents li a {*/
+/*  !*font: inherit;*!*/
+/*  color: var(--text-color);*/
+/*  text-decoration: none;*/
+/*  justify-content: start;*/
+/*  align-content: center;*/
+/*  justify-items: start;*/
+/*  align-items: center;*/
+/*  fill: var(--list-item-fill);*/
+/*  background: rgba(0, 0, 0, 0);*/
+/*  cursor: pointer;*/
+/*}*/
 
 
 /* ============================================ */

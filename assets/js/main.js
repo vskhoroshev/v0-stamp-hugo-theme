@@ -8,13 +8,17 @@ function init() {
     document.querySelector(":root").classList.toggle("light");
     // document.querySelector(":root").classList.toggle("dark");
 
-    document.querySelector(".language-switcher-button").addEventListener("click", function () {
-        document.querySelector(".language-switcher-list").classList.toggle("hidden");
-    });
+    // document.querySelector(".language-switcher-button").addEventListener("click", function () {
+    //     document.querySelector(".language-switcher-list").classList.toggle("hidden");
+    //
+    //     //
+    //     document.querySelector(".ololo").classList.toggle("hidden");
+    // });
 
     document.querySelector(".nav-switcher-button").addEventListener("click", function () {
-        document.querySelector(".baseof-nav").classList.toggle("hidden");
-        document.querySelector(".baseof-wrapper").classList.toggle("col-start-1");
+        document.querySelector(".nav-layout").classList.toggle("nazin2");
+        document.querySelector(".baseof-layout").classList.toggle("nazin");
+        // document.querySelector(".baseof-wrapper").classList.toggle("col-start-1");
     });
 
     document.querySelector(".navigation").addEventListener("click", (e) => {
@@ -25,6 +29,35 @@ function init() {
             var1.parentElement.querySelector(".navigation-section").classList.toggle("hidden");
         }
     });
+
+    //
+
+    // document.querySelector(".language-switcher").addEventListener("click", (e) => {
+    //     document.querySelector(".language-switcher-list").classList.toggle("hidden");
+    //     document.querySelector(".ololo").classList.toggle("hidden");
+    // })
+
+    document.querySelector(":root").addEventListener("click", (e) => {
+        let var1 = e.target.closest(".language-switcher-button");
+        // let var2 = document.querySelector(".language-switcher-button");
+
+        // console.log(e.target)
+        // console.log(var1)
+        // console.log(e.target.matches(".language-switcher-button"));
+
+        if (var1 === null) {
+            document.querySelector(".language-switcher-list").classList.add("hidden");
+        } else if (var1.matches(".language-switcher-button")) {
+            document.querySelector(".language-switcher-list").classList.toggle("hidden");
+        }
+
+        // if (var1 === var2) {
+        //     document.querySelector(".language-switcher-list").classList.toggle("hidden");
+        // } else {
+        //     document.querySelector(".language-switcher-list").classList.add("hidden");
+        // }
+    });
+
 }
 
 

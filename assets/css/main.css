@@ -58,51 +58,53 @@
 
 :root {
   --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --baseof-layout-transition-duration: .5s;
 }
 
 :root {
   --font-size: 16px;
+  --border-width: .0625rem;
+  --border-radius: .375rem;
   --body-font-size: .875rem;
   --body-line-height: 1.25rem;
   --baseof-header-height: 4rem;
-  --baseof-footer-height: 4rem;
-  --baseof-nav-width: 21rem;
+  --baseof-footer-height: 5rem;
+  --baseof-nav-width-const: 21rem;
+  --baseof-nav-width: var(--baseof-nav-width-const);
   --single-layout-max-width: 70.5rem;
   --single-aside-width: 15rem;
-  --border-width: .0625rem;
-  --border-radius: .375rem;
 }
 
 :root {
   --color-scheme: light;
   --color-scheme-dark: dark;
-  --baseof-header-background-color: #f3f0f0;
-  --baseof-header-background-color-dark: #575454;
-  --baseof-footer-background-color: #f3f0f0;
-  --baseof-footer-background-color-dark: #575454;
-  --baseof-nav-background-color: #f3f0f0;
-  --baseof-nav-background-color-dark: #575454;
-  --baseof-main-background-color: #f3f0f0;
-  --baseof-main-background-color-dark: #575454;
-  --border-color: #f3f0f0;
+  --border-color: #d1d1d1;
   --border-color-dark: #575454;
-  --fill: #f3f0f0;
+  --fill: #696969;
   --fill-dark: #575454;
-  --hover-background-color: #f3f0f0;
+  --baseof-main-background-color: #fdfdfd;
+  --baseof-main-background-color-dark: #575454;
+  --baseof-nav-background-color: #fdfdfd;
+  --baseof-nav-background-color-dark: #575454;
+  --baseof-header-background-color: #f7f7f7;
+  --baseof-header-background-color-dark: #575454;
+  --baseof-footer-background-color: #f7f7f7;
+  --baseof-footer-background-color-dark: #575454;
+  --hover-background-color: #e9e9e9;
   --hover-background-color-dark: #575454;
-  --current-background-color: #f3f0f0;
+  --current-background-color: #f2f2f2;
   --current-background-color-dark: #575454;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not(.light):not(.dark) {
     --color-scheme: var(--color-scheme-dark);
-    --baseof-header-background-color: var(--baseof-header-background-color-dark);
-    --baseof-footer-background-color: var(--baseof-footer-background-color-dark);
-    --baseof-nav-background-color: var(--baseof-nav-background-color-dark);
-    --baseof-main-background-color: var(--baseof-main-background-color-dark);
     --border-color: var(--border-color-dark);
     --fill: var(--fill-dark);
+    --baseof-main-background-color: var(--baseof-main-background-color-dark);
+    --baseof-nav-background-color: var(--baseof-nav-background-color-dark);
+    --baseof-header-background-color: var(--baseof-header-background-color-dark);
+    --baseof-footer-background-color: var(--baseof-footer-background-color-dark);
     --hover-background-color: var(--hover-background-color-dark);
     --current-background-color: var(--current-background-color-dark);
   }
@@ -110,12 +112,12 @@
 
 .dark {
   --color-scheme: var(--color-scheme-dark);
-  --baseof-header-background-color: var(--baseof-header-background-color-dark);
-  --baseof-footer-background-color: var(--baseof-footer-background-color-dark);
-  --baseof-nav-background-color: var(--baseof-nav-background-color-dark);
-  --baseof-main-background-color: var(--baseof-main-background-color-dark);
   --border-color: var(--border-color-dark);
   --fill: var(--fill-dark);
+  --baseof-main-background-color: var(--baseof-main-background-color-dark);
+  --baseof-nav-background-color: var(--baseof-nav-background-color-dark);
+  --baseof-header-background-color: var(--baseof-header-background-color-dark);
+  --baseof-footer-background-color: var(--baseof-footer-background-color-dark);
   --hover-background-color: var(--hover-background-color-dark);
   --current-background-color: var(--current-background-color-dark);
 }
@@ -141,6 +143,7 @@ body {
   grid-template: var(--baseof-header-height) 1fr / var(--baseof-nav-width) 1fr;
   min-height: 100vh;
   overflow-y: hidden;
+  transition: grid-template var(--baseof-layout-transition-duration);
 }
 
 .baseof-header {
@@ -161,6 +164,10 @@ body {
   scrollbar-gutter: stable;
   border-right: var(--border-width) solid var(--border-color);
   background-color: var(--baseof-nav-background-color);
+}
+
+.baseof-nav-hidden {
+  --baseof-nav-width: 0;
 }
 
 .baseof-wrapper {
@@ -203,8 +210,16 @@ body {
 }
 
 .nav-layout {
+  position: absolute;
+  left: 0;
+  right: 0;
   display: grid;
   padding: 1rem;
+  transition: left var(--baseof-layout-transition-duration);
+}
+
+.nav-layout-hidden {
+  left: calc(var(--baseof-nav-width-const) * -1);
 }
 
 .single-layout {
@@ -246,15 +261,6 @@ body {
   font: inherit;
 */
 /* ==================================================================================================== */
-
-:root {
-  --baseof-footer-height: 120px;
-  --fill: #656d76ff;
-  --hover-background-color: #e9e9e9;
-  --current-background-color: #e9e9e9;
-}
-
-
 
 
 .logo {

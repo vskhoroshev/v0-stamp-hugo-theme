@@ -6,6 +6,7 @@ function init() {
     console.log("Hello!!!!")
 
     document.querySelector(":root").classList.toggle("light");
+    document.querySelector(".light-theme-icon").classList.toggle("hidden");
     // document.querySelector(":root").classList.toggle("dark");
 
     // document.querySelector(".language-switcher-button").addEventListener("click", function () {
@@ -16,9 +17,8 @@ function init() {
     // });
 
     document.querySelector(".nav-switcher-button").addEventListener("click", function () {
-        document.querySelector(".nav-layout").classList.toggle("nazin2");
-        document.querySelector(".baseof-layout").classList.toggle("nazin");
-        // document.querySelector(".baseof-wrapper").classList.toggle("col-start-1");
+        document.querySelector(".baseof-layout").classList.toggle("baseof-nav-hidden");
+        document.querySelector(".nav-layout").classList.toggle("nav-layout-hidden");
     });
 
     document.querySelector(".navigation").addEventListener("click", (e) => {

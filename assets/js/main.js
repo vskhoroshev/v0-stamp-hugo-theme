@@ -18,8 +18,8 @@ function init() {
     //
 
     document.querySelector(".nav-switcher-button").addEventListener("click", function () {
-        document.querySelector(".baseof-layout").classList.toggle("baseof-nav-hidden");
-        document.querySelector(".nav-layout").classList.toggle("nav-layout-hidden");
+        document.querySelector(".baseof-layout").classList.toggle("baseof-layout--shift");
+        document.querySelector(".nav-layout").classList.toggle("nav-layout--shift");
     });
 
     document.querySelector(".navigation").addEventListener("click", (e) => {

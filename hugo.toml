@@ -2,6 +2,8 @@ baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'Stamp Hugo Theme'
 
+#enableGitInfo = true
+
 [module]
   [module.hugoVersion]
     extended = false

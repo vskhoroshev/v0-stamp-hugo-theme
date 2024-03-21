@@ -1,13 +1,16 @@
 {{ define "main" }}
 <div class="single-layout">
-  <article class="single-article">
+  <div class="single-title">
     <h1>{{ .Title }}</h1>
-    <section>
-      {{ .Content }}
-    </section>
-  </article>
-  <aside class="single-aside">
-    {{ .TableOfContents }}
-  </aside>
+  </div>
+  <div class="single-meta">
+    <span>Last modified: 01-01-2024</span>
+  </div>
+  <div class="single-toc">
+    <aside>{{ .TableOfContents }}</aside>
+  </div>
+  <div class="single-content">
+    <article>{{ .Content }}</article>
+  </div>
 </div>
 {{ end }}

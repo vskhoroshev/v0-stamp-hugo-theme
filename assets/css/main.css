@@ -218,18 +218,45 @@ body {
   margin: 0 auto;
 }
 
-.single-article {
+.single-title {
   padding: 1.5rem;
-  font-size: 1rem;
-  line-height: 1.5rem;
 }
 
-.single-aside {
+.single-meta {
+  padding: 1.5rem;
+}
+
+.single-toc {
+  grid-area: 1 / 2 / 4 / -1;
   position: sticky;
   top: 1rem;
+  height: min-content;
   max-height: calc(100vh - var(--baseof-header-height) - 2rem);
   overflow-y: auto;
 }
+
+.single-content {
+  padding: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .single-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .single-toc {
+    grid-area: auto;
+    position: static;
+    max-height: none;
+    padding: 1.5rem;
+  }
+}
+
+
+
+
+
+
 
 .footer-layout {
   display: grid;
@@ -249,18 +276,41 @@ body {
 */
 /* ==================================================================================================== */
 
-/*
-@media (max-width: 768px) {
-  .single-layout {
-    grid-template-columns: 1fr;
-  }
-  .single-aside {
-    position: static;
-    grid-row-start: 1;
-  }
+/*.single-title {*/
+/*  padding: 1.5rem;*/
+/*  font-size: 2.5rem;*/
+/*  line-height: 3rem;*/
+/*}*/
 
+/*.single-content {*/
+/*  padding: 1.5rem;*/
+/*  font-size: 1rem;*/
+/*  line-height: 1.5rem;*/
+/*}*/
+
+
+h1 {
+  font-size: unset;
+  margin: 0;
 }
-*/
+
+.single-title {
+  background-color: yellow;
+}
+
+.single-meta {
+  background-color: aquamarine;
+}
+
+.single-toc {
+  background-color: green;
+}
+
+.single-content {
+  background-color: lightsalmon;
+}
+
+
 
 
 .logo {

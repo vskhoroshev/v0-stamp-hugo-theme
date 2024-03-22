@@ -21,10 +21,11 @@
   --body-line-height: 1.25rem;
   --baseof-header-height: 4rem;
   --baseof-footer-height: 5rem;
-  --baseof-nav-width-origin: 21rem;
+  --baseof-nav-width-origin: min(21rem, 100vw);
   --baseof-nav-width: var(--baseof-nav-width-origin);
   --single-layout-max-width: 70.5rem;
   --single-aside-width: 15rem;
+  --single-article-padding: 1.5rem;
 }
 
 :root {
@@ -219,11 +220,11 @@ body {
 }
 
 .single-title {
-  padding: 1.5rem;
+  padding: 1.5rem var(--single-article-padding);
 }
 
 .single-meta {
-  padding: 1.5rem;
+  padding: 1.5rem var(--single-article-padding);
 }
 
 .single-toc {
@@ -236,11 +237,12 @@ body {
 }
 
 .single-content {
-  padding: 1.5rem;
+  padding: 1.5rem var(--single-article-padding);
 }
 
 @media (max-width: 768px) {
   .single-layout {
+    --single-article-padding: 0;
     grid-template-columns: 1fr;
   }
 
@@ -248,15 +250,9 @@ body {
     grid-area: auto;
     position: static;
     max-height: none;
-    padding: 1.5rem;
+    padding: 1.5rem var(--single-article-padding);
   }
 }
-
-
-
-
-
-
 
 .footer-layout {
   display: grid;
@@ -277,38 +273,38 @@ body {
 /* ==================================================================================================== */
 
 /*.single-title {*/
-/*  padding: 1.5rem;*/
 /*  font-size: 2.5rem;*/
 /*  line-height: 3rem;*/
 /*}*/
 
 /*.single-content {*/
-/*  padding: 1.5rem;*/
 /*  font-size: 1rem;*/
 /*  line-height: 1.5rem;*/
 /*}*/
 
+/*   <span>Last modified: {{ .Lastmod | time.Format ":date_medium" }}</span> */
+
 
 h1 {
-  font-size: unset;
+  /*font-size: unset;*/
   margin: 0;
 }
 
-.single-title {
-  background-color: yellow;
-}
+/*.single-title {*/
+/*  background-color: yellow;*/
+/*}*/
 
-.single-meta {
-  background-color: aquamarine;
-}
+/*.single-meta {*/
+/*  background-color: aquamarine;*/
+/*}*/
 
-.single-toc {
-  background-color: green;
-}
+/*.single-toc {*/
+/*  background-color: green;*/
+/*}*/
 
-.single-content {
-  background-color: lightsalmon;
-}
+/*.single-content {*/
+/*  background-color: lightsalmon;*/
+/*}*/
 
 
 
